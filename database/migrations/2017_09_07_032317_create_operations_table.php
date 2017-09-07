@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableOperations extends Migration
+class CreateOperationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTableOperations extends Migration
      */
     public function up()
     {
-        Schema::table('operations', function (Blueprint $table) {
-            //
+        Schema::create('operations', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('open');
             $table->dateTime('close');
             $table->decimal('total',5,2);
-            $table->timestamps();
-        });
+            $table->timestamps(); 
+        });       
     }
 
     /**
@@ -30,8 +29,6 @@ class CreateTableOperations extends Migration
      */
     public function down()
     {
-        Schema::table('operations', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('operations');
     }
 }
