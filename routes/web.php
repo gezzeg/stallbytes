@@ -17,8 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/*
+ADMIN LTE
+ */
 Route::get('/dashboard', function () {
     return view('adminlte');
 });
 
+
+/*
+HOME CONTROLLER
+ */
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+CATEGORY CONTROLLER
+ */
+Route::get('/category','Category\CategoryController@index')->name('category.index');
+Route::get('/category/create','Category\CategoryController@create')->name('category.create');
+Route::post('/category/create','Category\CategoryController@store')->name('category.store');
