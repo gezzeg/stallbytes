@@ -15,10 +15,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('customer_id');
-            $table->decimal('total'5,2);
-            $table->id('stall_id');
-            $table->string('operation_id');
+            $table->integer('customer_id');
+            $table->decimal('total',5,2);
+            $table->integer('stall_id');
+            $table->integer('operation_id');
             $table->timestamps();
         });
     }
