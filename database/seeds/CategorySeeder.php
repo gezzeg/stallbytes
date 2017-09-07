@@ -16,13 +16,23 @@ class CategorySeeder extends Seeder
             // $table->string('name');
             // $table->timestamps();
     
-		// DB::table('items')->insert([     	
-  //           'name' => 'Burger Ayam',
-  //       ],[     	
-  //           'name' => 'Burger Daging',
-  //       ],[     	
-  //           'name' => 'Burger Telur',
-  //       ]);     
+		DB::table('categories')->insert([     	
+	        [
+	        'name' => 'Burger Ayam',
+	        'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+            ],
+	        [
+	        'name' => 'Burger Daging',
+	        'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+            ],
+	        [
+	        'name' => 'Burger Telur',
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+			],
+        ]);     
 
     }
 }

@@ -15,17 +15,37 @@ class ItemsSeeder extends Seeder
             // $table->string('name');
             // $table->string('category');
             // $table->decimal('price',5,2);
-            // $table->timestamps();        
-        
-        // for($i=1;$i<=3;$i++){
-    	
-        // DB::table('items')->insert([
-        //     'user_id' => '1',        	
-        //     'name' => 'Burger A',
-        //     'category' => rand(1, 3),
-        //     'price'=>2.50,
-        // ]);  
-        
-       	// }
+            // $table->timestamps();   
+            // 
+	         // DB::table('smoking_statuses')->insert(array(
+	         // array('name'=>'Attempt'),
+	         // array('name'=>'Quit'),
+	         // array('name'=>'Withdraw'),
+	         // ));     
+      
+        DB::table('items')->insert([
+        	array(       	
+            'name' => 'Burger A',
+            'category' => rand(1, 3),
+            'price'=>2.50,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        	),
+        	array( 
+        	'name' => 'Burger B',
+            'category' => rand(1, 3),
+            'price'=>2.50,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        	),  
+        	array(
+        	'name' => 'Burger C',
+            'category' => rand(1, 3),
+            'price'=>2.50,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
+        	)
+        ]);         
+       	
     }
 }
