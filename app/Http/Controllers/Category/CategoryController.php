@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Category;
 
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Category;
+use Illuminate\Support\Facades\Input;
+
+//use App\Http\Request\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -41,23 +45,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
  
-    	$validator = $this->validate($request, [
-        'name' => 'required',
-    	]);
+ 		//validation
+    	$this->validate($request, [
+        'categoryName' => 'required|max:10',
+        ]);
 
-    	if ($validator->fails()) {
-            $message = $validator->errors();
-            $this->SetStatusCode(404);
-            return redirect()->back()->with('status','Update Failed!');
-        }
+    	//insert
+        Category::create([
+        	'name' => $request['categoryName']
+        	]);
 
-        $data = new Category();
-        $data->name = $request['categoryName'];
-        $data->save();
-
-        //Category::create($data);
-
-        return redirect()->back()->with('status','Update Success!');
+        //return with message
+        return redirect()->route('category.index')->with('status','New category added: '.$request['categoryName']);
     }
 
     /**

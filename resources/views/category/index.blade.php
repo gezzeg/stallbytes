@@ -10,13 +10,23 @@
                 
                 </div>
 
+@if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
+
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-            
+
 
                     <button type="" class="btn btn-success pull-right"><a href='{{ route('category.create') }}'>Add</a></button>
 
